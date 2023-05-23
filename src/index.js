@@ -5,7 +5,7 @@ const apiUrl = 'https://api.tvmaze.com/shows';
 const movieCardsContainer = document.getElementById('movie-cards');
 const pop = document.querySelector('.pop');
 
-async function fetchMovieData(showId) {
+const fetchMovieData = async (showId) => {
   const response = await fetch(`${apiUrl}/${showId}`);
   const data = await response.json();
   return {
@@ -14,9 +14,9 @@ async function fetchMovieData(showId) {
     summary: data.summary,
     genres: data.genres,
   };
-}
+};
 
-function createMovieCard(movieData) {
+const createMovieCard = (movieData) => {
   const card = document.createElement('div');
   card.classList.add('movie-card');
 
@@ -42,19 +42,17 @@ function createMovieCard(movieData) {
     callPop(movieData);
   });
   return card;
-}
+};
 
-async function createMovieCards() {
+const createMovieCards = async () => {
   const response = await fetch(`${apiUrl}`);
   const showData = await response.json();
   const shows = showData.slice(0, 20);
-
-  // Create movie cards for each TV show
   shows.forEach(async (show) => {
     const movieData = await fetchMovieData(show.id);
     const movieCard = createMovieCard(movieData);
     movieCardsContainer.appendChild(movieCard);
   });
-}
+};
 
 createMovieCards();
