@@ -1,8 +1,9 @@
-body{
+body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
 nav {
   background-color: goldenrod;
   display: flex;
@@ -40,18 +41,21 @@ div p {
   align-items: center;
   font-style: oblique;
 }
-footer p{
+
+footer p {
   display: flex;
   justify-content: space-evenly;
   width: 48%;
   align-items: center;
   margin-left: 17%;
 }
-footer{
+
+footer {
   margin-top: auto;
   background: goldenrod;
 }
-footer a{
+
+footer a {
   color: black;
   display: flex;
   justify-content: center;
