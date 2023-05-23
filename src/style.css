@@ -1,3 +1,8 @@
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 nav {
   background-color: goldenrod;
   display: flex;
@@ -34,4 +39,22 @@ div p {
   justify-content: center;
   align-items: center;
   font-style: oblique;
+}
+footer p{
+  display: flex;
+  justify-content: space-evenly;
+  width: 48%;
+  align-items: center;
+  margin-left: 17%;
+}
+footer{
+  margin-top: auto;
+  background: goldenrod;
+}
+footer a{
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
 }
