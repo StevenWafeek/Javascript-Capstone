@@ -1,7 +1,9 @@
+import callPop from './modules/pop.js';
 import './style.css';
 
 const apiUrl = 'https://api.tvmaze.com/shows';
 const movieCardsContainer = document.getElementById('movie-cards');
+const pop = document.querySelector('.pop');
 
 async function fetchMovieData(showId) {
   const response = await fetch(`${apiUrl}/${showId}`);
@@ -25,6 +27,7 @@ function createMovieCard(movieData) {
   image.src = movieData.image;
   const comment = document.createElement('button');
   comment.innerHTML = 'Comment';
+  comment.classList.add('comment');
 
   const genres = document.createElement('p');
   genres.innerHTML = `<strong>Genres:</strong> ${movieData.genres.join(', ')}`;
@@ -33,6 +36,11 @@ function createMovieCard(movieData) {
   card.appendChild(image);
   card.appendChild(genres);
   card.appendChild(comment);
+
+  comment.addEventListener('click', () => {
+    pop.style.display = 'block';
+    callPop(movieData);
+  });
   return card;
 }
 
