@@ -1,30 +1,66 @@
 import './style.css';
 
 const apiUrl = 'https://api.tvmaze.com/shows';
+const likesApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EggSGBLacbxyGumZrK3e/likes/';
 const movieCardsContainer = document.getElementById('movie-cards');
 
-async function fetchMovieData(showId) {
+const fetchMovieData = async (showId) => {
   const response = await fetch(`${apiUrl}/${showId}`);
   const data = await response.json();
   return {
     name: data.name,
     image: data.image.medium,
-    summary: data.summary,
     genres: data.genres,
   };
-}
+};
 
-function createMovieCard(movieData) {
+const fetchLikesData = async (showId) => {
+  const response = await fetch(`${likesApiUrl}?item_id=${showId}`);
+  const data = await response.json();
+  return data.likes;
+};
+
+const updateLikesData = async (showId, likes) => {
+  const response = await fetch(`${likesApiUrl}`, {
+    method: 'POST',
+    body: JSON.stringify({ item_id: showId, likes: likes }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await response.json();
+  return data;
+};
+
+const createMovieCard = async (movieData, showId) => {
   const card = document.createElement('div');
   card.classList.add('movie-card');
+  card.id = `movie-${showId}`;
 
   const title = document.createElement('h2');
   title.innerText = movieData.name;
 
   const image = document.createElement('img');
   image.src = movieData.image;
+
   const comment = document.createElement('button');
   comment.innerHTML = 'Comment';
+
+  const likeBtn = document.createElement('button');
+  likeBtn.innerHTML = 'Like';
+
+  const likes = document.createElement('p');
+  likes.innerHTML = 'Likes: 0';
+
+  const movieLikes = await fetchLikesData(showId);
+  likes.innerHTML = `Likes: ${movieLikes}`;
+
+  likeBtn.addEventListener('click', async () => {
+    const currentLikes = parseInt(likes.innerHTML.split(' ')[1]);
+    const newLikes = currentLikes + 1;
+    likes.innerHTML = `Likes: ${newLikes}`;
+    await updateLikesData(showId, newLikes);
+  });
 
   const genres = document.createElement('p');
   genres.innerHTML = `<strong>Genres:</strong> ${movieData.genres.join(', ')}`;
@@ -32,21 +68,26 @@ function createMovieCard(movieData) {
   card.appendChild(title);
   card.appendChild(image);
   card.appendChild(genres);
+  card.appendChild(likeBtn);
+  card.appendChild(likes);
   card.appendChild(comment);
-  return card;
-}
 
-async function createMovieCards() {
+  return card;
+};
+
+
+const createMovieCards = async () => {
   const response = await fetch(`${apiUrl}`);
   const showData = await response.json();
-  const shows = showData.slice(0, 20);
+  const shows = showData.slice(0,20);
 
-  // Create movie cards for each TV show
+  // Create movie cards for each TV show 
   shows.forEach(async (show) => {
+    // const show = shows[i];
     const movieData = await fetchMovieData(show.id);
-    const movieCard = createMovieCard(movieData);
+    const movieCard = await createMovieCard(movieData, show.id);
     movieCardsContainer.appendChild(movieCard);
-  });
-}
+  }
+)};
 
 createMovieCards();
