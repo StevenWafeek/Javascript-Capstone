@@ -1,8 +1,10 @@
+import callPop from './modules/pop.js';
 import './style.css';
 
 const apiUrl = 'https://api.tvmaze.com/shows';
 const likesApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EggSGBLacbxyGumZrK3e/likes/';
 const movieCardsContainer = document.getElementById('movie-cards');
+const pop = document.querySelector('.pop');
 
 const fetchMovieData = async (showId) => {
   const response = await fetch(`${apiUrl}/${showId}`);
@@ -13,6 +15,7 @@ const fetchMovieData = async (showId) => {
     genres: data.genres,
   };
 };
+
 
 const fetchLikesData = async (showId) => {
   const response = await fetch(`${likesApiUrl}?item_id=${showId}`);
@@ -35,6 +38,8 @@ const updateLikesData = async (showId, likes) => {
 };
 
 const createMovieCard = async (movieData, showId) => {
+
+
   const card = document.createElement('div');
   card.classList.add('movie-card');
   card.id = `movie-${showId}`;
@@ -47,6 +52,7 @@ const createMovieCard = async (movieData, showId) => {
 
   const comment = document.createElement('button');
   comment.innerHTML = 'Comment';
+  comment.classList.add('comment');
 
   const likeBtn = document.createElement('button');
   likeBtn.classList.add('likes');
@@ -75,6 +81,13 @@ const createMovieCard = async (movieData, showId) => {
   card.appendChild(likes);
   card.appendChild(comment);
 
+
+
+  comment.addEventListener('click', () => {
+    pop.style.display = 'block';
+    callPop(movieData);
+  });
+
   return card;
 };
 
@@ -82,12 +95,14 @@ const createMovieCards = async () => {
   const response = await fetch(`${apiUrl}`);
   const showData = await response.json();
   const shows = showData.slice(0, 20);
-
-  // Create movie cards for each TV show
   shows.forEach(async (show) => {
     const movieData = await fetchMovieData(show.id);
     const movieCard = await createMovieCard(movieData, show.id);
     movieCardsContainer.appendChild(movieCard);
   });
 };
+
+
+
+
 createMovieCards();
