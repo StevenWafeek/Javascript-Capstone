@@ -16,7 +16,6 @@ const fetchMovieData = async (showId) => {
   };
 };
 
-
 const fetchLikesData = async (showId) => {
   const response = await fetch(`${likesApiUrl}?item_id=${showId}`);
   const data = await response.json();
@@ -38,8 +37,6 @@ const updateLikesData = async (showId, likes) => {
 };
 
 const createMovieCard = async (movieData, showId) => {
-
-
   const card = document.createElement('div');
   card.classList.add('movie-card');
   card.id = `movie-${showId}`;
@@ -81,8 +78,6 @@ const createMovieCard = async (movieData, showId) => {
   card.appendChild(likes);
   card.appendChild(comment);
 
-
-
   comment.addEventListener('click', () => {
     pop.style.display = 'block';
     callPop(movieData);
@@ -101,8 +96,5 @@ const createMovieCards = async () => {
     movieCardsContainer.appendChild(movieCard);
   });
 };
-
-
-
 
 createMovieCards();
