@@ -1,5 +1,7 @@
 <a name="readme-top"></a>
 
+Our movies project is a movies app that uses an external TV maze API to display avaialable movies. This project uses WEBPACK and three end points to fetch tha data that a user requests for.It is Built with: HTML/CSS and JavaScript plus the ES syntax.
+
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
