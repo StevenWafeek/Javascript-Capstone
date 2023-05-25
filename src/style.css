@@ -156,25 +156,30 @@ img {
   width: 46%;
   height: 12%;
   margin-right: 56%;
-  margin-top: -14%;
+  margin-top: -20px;
   background-color: #3e3e3e73;
   padding: 6px;
 }
-.commented{
+
+.commented {
   margin-left: 74%;
+  margin-top: -10px;
 }
-.nameMe{
+
+.nameMe {
   width: 50%;
-    margin-left: 48%;
-    margin-top: -7%;
+  margin-left: 48%;
+  margin-top: -83px;
 }
-.commentMe{
+
+.commentMe {
   width: 50%;
   margin-left: 48%;
   margin-top: 1%;
   height: 66px;
 }
-.submit-comment-btn{
+
+.submit-comment-btn {
   margin-left: 86%;
   margin-top: 4px;
 }
