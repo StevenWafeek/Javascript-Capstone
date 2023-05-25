@@ -1,4 +1,5 @@
 import callPop from './modules/popup.js';
+import updateMovieCardCount from './modules/movieCount.js';
 import './style.css';
 
 const apiUrl = 'https://api.tvmaze.com/shows';
@@ -96,6 +97,8 @@ const createMovieCards = async () => {
   const response = await fetch(`${apiUrl}`);
   const showData = await response.json();
   const shows = showData.slice(0, 20);
+  const count = shows.length;
+  updateMovieCardCount(count);
 
   shows.forEach(async (show) => {
     const movieData = await fetchMovieData(show.id);
