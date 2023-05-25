@@ -72,6 +72,8 @@ const callPop = async (movieData) => {
 
         // Display the new comment
 
+        const newCommentHTML = `<p><strong>${name}: </strong>${comment}</p>`;
+        commentsSection.insertAdjacentHTML('beforeend', newCommentHTML);
         // Clear the input fields
         document.querySelector('input[type="text"]:first-of-type').value = '';
         inputField.value = '';
