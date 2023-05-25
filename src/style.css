@@ -120,12 +120,12 @@ img {
 }
 
 .likes {
-  display: none;
+  /* display: none; */
 }
 
 .container {
   position: relative;
-  
+
 }
 
 .pop {

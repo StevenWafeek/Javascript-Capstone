@@ -1,40 +1,13 @@
+import { createComment, displayComments, getMovieId, setMovieId } from './modules/comments.js';
+import fetchMovieData from './modules/fetchData.js';
+import { fetchLikesData, updateLikesData } from './modules/likes.js';
 import callPop from './modules/pop.js';
+
+
 import './style.css';
 
-const apiUrl = 'https://api.tvmaze.com/shows';
-const likesApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EggSGBLacbxyGumZrK3e/likes/';
 const movieCardsContainer = document.getElementById('movie-cards');
 const pop = document.querySelector('.pop');
-
-const fetchMovieData = async (showId) => {
-  const response = await fetch(`${apiUrl}/${showId}`);
-  const data = await response.json();
-  return {
-    name: data.name,
-    image: data.image.medium,
-    genres: data.genres,
-  };
-};
-
-const fetchLikesData = async (showId) => {
-  const response = await fetch(`${likesApiUrl}?item_id=${showId}`);
-  const data = await response.json();
-  // eslint-disable-next-line camelcase
-  const res = data.find(({ item_id }) => item_id === showId);
-  return res ? res.likes : 0;
-};
-
-const updateLikesData = async (showId, likes) => {
-  const response = await fetch(`${likesApiUrl}`, {
-    method: 'POST',
-    body: JSON.stringify({ item_id: showId, likes }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const data = await response.text();
-  return data;
-};
 
 const createMovieCard = async (movieData, showId) => {
   const card = document.createElement('div');
@@ -80,21 +53,35 @@ const createMovieCard = async (movieData, showId) => {
 
   comment.addEventListener('click', () => {
     pop.style.display = 'block';
+    setMovieId(movieData);
     callPop(movieData);
+    displayComments(getMovieId());
   });
 
   return card;
 };
 
 const createMovieCards = async () => {
+  const apiUrl = 'https://api.tvmaze.com/shows';
   const response = await fetch(`${apiUrl}`);
   const showData = await response.json();
   const shows = showData.slice(0, 20);
   shows.forEach(async (show) => {
+
     const movieData = await fetchMovieData(show.id);
     const movieCard = await createMovieCard(movieData, show.id);
     movieCardsContainer.appendChild(movieCard);
   });
+
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  createComment();
+});
+
+
 };
+
 
 createMovieCards();
