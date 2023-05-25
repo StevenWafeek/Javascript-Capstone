@@ -24,9 +24,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Awesome Books <a name="about-project"></a>
+# 📖 JavaScript group capstone <a name="about-project"></a>
 
-This is **Awesome Books** site, created with HTML and Javascript.
+This is **JavaScript group capstone** site, created with HTML and Javascript.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -39,12 +39,15 @@ This is **Awesome Books** site, created with HTML and Javascript.
 <details>
 <summary>Javascript</summary>
 </details>
+<details>
+<summary>css</summary>
+</details>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- **GitHub WorkFlow**
+- **GitFlow**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -68,7 +71,7 @@ In order to run this project you need:
 Clone this repository to your desired folder by opening the terminal and running the following command:
 
 ```sh
- git clone `git@github.com:StevenWafeek/Awesome-books.git`
+ https://github.com/StevenWafeek/Javascript-Capstone`
 
 ```
 
@@ -122,10 +125,11 @@ Deployed by GitHub Pages.
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Hajnalka Oltyan**
+👤 **Benjamin**
 
-- GitHub: [@hajnaloltyan](https://github.com/hajnaloltyan)
-- LinkedIn: [Hajnal Oltyan](https://www.linkedin.com/in/hajnalka-oltyan/)
+- GitHub: [@githubhandle](https://github.com/BenjaminMatembe)
+- LinkedInn: [@linkedInnhandle](https://www.linkedin.com/in/matembe-benjamin-b7274122a/)
+- Twitter: [@twitterhandle](https://twitter.com/Glenmata2)
 
 👤 **steven wafeek**
 
@@ -140,7 +144,21 @@ Deployed by GitHub Pages.
 
 ## 🔭 Future milestone <a name="future-features"></a>
 
-- using ES6
+- Use JavaScript to make websites dynamic and build basic single page apps.
+- Use ES6 syntax.
+- Use ES6 modules.
+- Use callbacks and promises.
+- Use webpack.
+- Apply JavaScript best practices and language style guides in code.
+- Use AAA pattern for unit tests.
+- Write units tests for a JavaScript app.
+- Follow Gitflow.
+- Solve simple git conflicts.
+- Send and receive data from an API.
+- Use API documentation.
+- Understand and use JSON.
+- Make JavaScript code asynchronous.
+- Perform a code review for a team member.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
