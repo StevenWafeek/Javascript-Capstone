@@ -82,11 +82,9 @@ const createMovieCard = async (movieData, showId) => {
 
   comment.addEventListener('click', () => {
     const body = document.querySelector('body');
-    // const popHTML = document.querySelector('.popHTML');
     window.scrollTo(0, 0);
     pop.style.display = 'block';
     body.style.overflow = 'hidden';
-    // popHTML.style.overflow = 'overflow-y: scroll';
     callPop(movieData);
   });
 
