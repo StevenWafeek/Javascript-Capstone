@@ -1,3 +1,5 @@
+import commentCounter from './commentsCounter.js';
+
 const getComments = async (showId) => {
   const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EK8AqlUP7MtIYG7gJYqn/comments?item_id=${showId}`);
   const data = await response.json();
@@ -13,13 +15,13 @@ const callPop = async (movieData) => {
   const comments = await getComments(movieData.itemId);
   if (comments.length > 0) {
     // Create the HTML for the pop-up with comments section and add comment button
-    commentsHTML = comments.map((comment) => `<p>${comment.username}: ${comment.comment}</p>`).join('');
+    commentsHTML = comments.map((comment) => `<p class='putComments'>${comment.username}: ${comment.comment}</p>`).join('');
   }
   const popHTML = `<div class="popHTML">
         <button class="closed">X</button>
         <br/> Name: ${movieData.name} 
         <img class="popup-img" src=${movieData.image} alt="">Credentials: ${movieData.genres}
-        <br/><br/><h3 class="commented">Comments (${comments.length})</h3>
+        <br/><br/><h3 class="commented">Comments:</h3>
         <div class="comments-section">${commentsHTML}</div>
         `;
   popData.innerHTML = popHTML;
@@ -55,6 +57,7 @@ const callPop = async (movieData) => {
     submitButton.addEventListener('click', () => {
       const name = document.querySelector('input[type="text"]:first-of-type').value.trim();
       const comment = inputField.value.trim();
+
       if (comment !== '') {
         // Add comment to API for this movie
         const requestBody = {
@@ -80,6 +83,10 @@ const callPop = async (movieData) => {
       }
     });
   }
+
+  const count = document.querySelector('.commented');
+  const counted = commentCounter();
+  count.textContent += `${counted}`;
 };
 
 export default callPop;
