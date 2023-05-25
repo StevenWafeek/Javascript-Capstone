@@ -13,11 +13,8 @@ describe('Test for comments', () => {
          <ul class="comments"></ul>
        </div>
      `;
-
-    // Act
     const commentCount = commentCounter();
 
-    // Assert
     expect(commentCount).toBe(0);
   });
 });

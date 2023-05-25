@@ -1,5 +1,7 @@
 <a name="readme-top"></a>
 
+Our movies project is a movies app that uses an external TV maze API to display avaialable movies. This project uses WEBPACK and three end points to fetch tha data that a user requests for.It is Built with: HTML/CSS and JavaScript plus the ES syntax.
+
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -38,6 +40,8 @@ This is **JavaScript group capstone** site, created with HTML and Javascript.
 
 <details>
 <summary>Javascript</summary>
+<summary>Use ES6 syntax</summary>
+<summary>Use ES6 modules.</summary>
 </details>
 <details>
 <summary>css</summary>
@@ -144,21 +148,8 @@ Deployed by GitHub Pages.
 
 ## 🔭 Future milestone <a name="future-features"></a>
 
-- Use JavaScript to make websites dynamic and build basic single page apps.
-- Use ES6 syntax.
-- Use ES6 modules.
-- Use callbacks and promises.
-- Use webpack.
-- Apply JavaScript best practices and language style guides in code.
-- Use AAA pattern for unit tests.
-- Write units tests for a JavaScript app.
-- Follow Gitflow.
-- Solve simple git conflicts.
-- Send and receive data from an API.
-- Use API documentation.
-- Understand and use JSON.
-- Make JavaScript code asynchronous.
-- Perform a code review for a team member.
+-Connecting to backend services.
+-Using frameworks e.g Reactjs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -183,6 +174,8 @@ If you like this project please leave a star and a comment.
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Microverse to have this opportunity, and also thank you the code review team.
+
+I would like to tahnk my coding partner for the great collaboration.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
