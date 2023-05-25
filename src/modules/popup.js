@@ -38,15 +38,15 @@ const callPop = async (movieData) => {
   const submitButtonExists = document.querySelector('.comments-section .submit-comment-btn');
   if (!inputsExist && !submitButtonExists) {
     // Create input and submit button for adding a comment
-    const nameHTML = '<input type="text" placeholder="Enter your name">';
-    const inputHTML = '<input type="text" placeholder="Enter your comment">';
+    const nameHTML = '<input type="text" class="nameMe" placeholder="Enter your name">';
+    const inputHTML = '<input type="text" class="commentMe" placeholder="Enter your comment">';
     const submitHTML = '<button class="submit-comment-btn">Submit</button>';
 
     // Add input and submit button to comments section
     const commentsSection = document.querySelector('.comments-section');
     commentsSection.insertAdjacentHTML('afterend', submitHTML);
-    commentsSection.insertAdjacentHTML('afterend', nameHTML);
     commentsSection.insertAdjacentHTML('afterend', inputHTML);
+    commentsSection.insertAdjacentHTML('afterend', nameHTML);
 
     // Focus on the input field
     const inputField = document.querySelector('input[type="text"]:nth-of-type(2)');
