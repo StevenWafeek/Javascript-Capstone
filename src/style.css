@@ -128,7 +128,7 @@ img {
 }
 
 .pop {
-  height: 23%;
+  height: 100%;
   width: 100%;
   background-color: rgba(12, 9, 2, 0.855);
   position: absolute;
@@ -140,7 +140,8 @@ img {
 
 .popHTML {
   background-color: rgba(218, 165, 32, 0.648);
-  height: 80%;
+  height: 25%;
   width: 50%;
-  margin: auto;
+  margin: 10px auto;
+  overflow-y: scroll;
 }
