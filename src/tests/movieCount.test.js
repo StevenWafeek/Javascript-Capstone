@@ -1,4 +1,6 @@
-import updateMovieCardCount from './movieCount.js';
+// import updateMovieCardCount from './movieCount.js';
+
+import updateMovieCardCount from '../modules/movieCount.js';
 
 describe('updateMovieCardCount', () => {
   test('should update the movie card count', () => {
