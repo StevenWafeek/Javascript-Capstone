@@ -95,7 +95,16 @@ const createMovieCards = async () => {
   const response = await fetch(`${apiUrl}`);
   const showData = await response.json();
   const shows = showData.slice(0, 20);
-  const count = shows.length;
+
+  shows.forEach(async (show) => {
+    const movieData = await fetchMovieData(show.id);
+    const movieCard = await createMovieCard(movieData, show.id);
+    movieCardsContainer.appendChild(movieCard);
+  });
+
+  // Update the movie card count
+  const movieCards = document.querySelectorAll('.movie-card');
+  const count = movieCards.length;
   updateMovieCardCount(count);
 
   shows.forEach(async (show) => {
