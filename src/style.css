@@ -144,9 +144,9 @@ img {
   height: 30%;
   width: 50%;
   margin: 10px auto;
-
 }
-.comments-section{
-  overflow: overlay;
+
+.comments-section {
+  overflow:auto;
   height: 12%;
 }
