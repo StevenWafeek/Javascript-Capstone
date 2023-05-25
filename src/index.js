@@ -2,7 +2,7 @@ import callPop from './modules/pop.js';
 import './style.css';
 
 const apiUrl = 'https://api.tvmaze.com/shows';
-const likesApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EggSGBLacbxyGumZrK3e/likes/';
+const likesApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EK8AqlUP7MtIYG7gJYqn/likes/';
 const movieCardsContainer = document.getElementById('movie-cards');
 const pop = document.querySelector('.pop');
 
@@ -13,6 +13,7 @@ const fetchMovieData = async (showId) => {
     name: data.name,
     image: data.image.medium,
     genres: data.genres,
+    itemId: showId
   };
 };
 
@@ -90,6 +91,7 @@ const createMovieCards = async () => {
   const response = await fetch(`${apiUrl}`);
   const showData = await response.json();
   const shows = showData.slice(0, 20);
+   
   shows.forEach(async (show) => {
     const movieData = await fetchMovieData(show.id);
     const movieCard = await createMovieCard(movieData, show.id);
