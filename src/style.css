@@ -1,0 +1,185 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: goldenrod;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 100px;
+}
+
+footer p {
+  display: flex;
+  justify-content: space-evenly;
+  width: 48%;
+  align-items: center;
+  margin-left: 17%;
+}
+
+li,
+.logo p {
+  width: 120px;
+  background-color: rgb(224, 216, 197);
+  padding: 5px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo p {
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: oblique;
+}
+
+footer {
+  margin-top: auto;
+  background: goldenrod;
+  height: 70px;
+  display: flex;
+}
+
+footer a {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+}
+
+#movie-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100vw;
+  position: relative;
+}
+
+.closed {
+  margin-bottom: -10px;
+  margin-left: -95%;
+}
+
+img {
+  margin-bottom: 20px;
+}
+
+.movie-card {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  width: 21%;
+}
+
+.movie-card p {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+}
+
+.movie-card button {
+  background-color: #e3a200a6;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid black;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.movie-card img {
+  height: 100%;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.movie-card:hover {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 24%;
+  transition: 0.4s;
+}
+
+.likes {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+}
+
+.pop {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(12, 9, 2, 0.855);
+  position: fixed;
+  color: white;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+
+.popHTML {
+  background-color: rgba(218, 165, 32, 0.648);
+  height: 100%;
+  width: 50%;
+  margin: 10px auto;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comments-section {
+  overflow: auto;
+  width: 46%;
+  height: 12%;
+  margin-right: 56%;
+  margin-top: -20px;
+  background-color: #3e3e3e73;
+  padding: 6px;
+}
+
+.commented {
+  margin-left: 74%;
+  margin-top: -10px;
+}
+
+.nameMe {
+  width: 50%;
+  margin-left: 48%;
+  margin-top: -83px;
+}
+
+.commentMe {
+  width: 50%;
+  margin-left: 48%;
+  margin-top: 1%;
+  height: 66px;
+}
+
+.submit-comment-btn {
+  margin-left: 86%;
+  margin-top: 4px;
+}
